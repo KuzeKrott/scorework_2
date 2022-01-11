@@ -1,0 +1,25 @@
+<h2>Добавить новый пост!</h2>
+
+<%= form_for :post, url: posts_path do |f| %>
+
+    <% if @post.errors.any? %>
+    
+        <div id="error_explanation">
+        <% @post.errors.full_messages.each do |msg| %>
+            <div class="alert alert-danger"> <%= msg %> </div>
+        <% end %>
+    <% end %>
+
+    <p>Назови пост!<br>
+    <%= f.text_field(:title, {:class => 'form-control'}) %>
+    </p>
+
+    <p>Расскажи, о чём пост?<br>
+    <%= f.text_area(:body, {:class => 'form-control'}) %>
+    </p>
+
+    <p>
+    <%= f.submit ({:class => 'form-control'}) %>
+    </p>
+
+<% end %>
